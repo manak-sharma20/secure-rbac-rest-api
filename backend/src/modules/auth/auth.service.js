@@ -22,7 +22,7 @@ const registerUser= async({name,email,password})=>{
     }
 }
 const loginUser = async ({ email, password }) => {
-    const user = await User.findOne({ email }).select("+password")}
+    const user = await User.findOne({ email }).select("+password")
     if(!user){
         const error = new Error("Invalid email or password");
         error.status = 401;
@@ -47,6 +47,6 @@ const loginUser = async ({ email, password }) => {
       email: user.email,
       role: user.role,
     },
-  };
+  }};
   
   module.exports={registerUser,loginUser}
